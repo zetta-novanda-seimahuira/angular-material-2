@@ -7,6 +7,10 @@
   (keyup)="searchMentor(input.value)">
 </mat-form-field>
 
+
+
+
+
 <mat-form-field appearance="fill">
   <mat-label>Status</mat-label>
   <mat-select (selectionChange)="searchMentor($event.value)" >
@@ -42,7 +46,8 @@
   <ng-container matColumnDef="status">
     <th mat-header-cell *matHeaderCellDef>Status</th>
     <td *matCellDef="let mentor"> 
-      <button mat-raised-button [ngStyle]="{ 'background-color': mentor.user_status == 'active' ? 'green' : 'red' }">{{mentor.user_status}} </button>
+      <mat-icon  style="color: green;" *ngIf="mentor.user_status == 'active'">check</mat-icon>
+      <mat-icon style="color: red;" *ngIf="mentor.user_status !== 'active'">cancel</mat-icon>
     </td>
   </ng-container>
 
